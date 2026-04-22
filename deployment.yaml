@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: cloud
+  template:
+    metadata:
+      labels:
+        app: cloud
+    spec:
+      containers:
+      - name: cloud
+        image: cloud
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 4000
